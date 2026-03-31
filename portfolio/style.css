@@ -602,6 +602,72 @@ section:nth-child(even) {
   margin-bottom: 0.35rem;
 }
 
+/* Mission icon + header layout */
+.card-icon-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.card-icon-header .card-header {
+  margin-bottom: 0;
+  flex: 1;
+}
+
+.mission-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.timeline-card:hover .mission-icon {
+  transform: scale(1.12) rotate(-3deg);
+}
+
+.mission-icon.retail    { background: rgba(99,179,237,0.15);   color: #63b3ed; box-shadow: 0 0 14px rgba(99,179,237,0.3);  }
+.mission-icon.luxe      { background: rgba(214,158,46,0.15);   color: #d6a22e; box-shadow: 0 0 14px rgba(214,158,46,0.3);  }
+.mission-icon.industrie { background: rgba(154,230,180,0.15);  color: #68d391; box-shadow: 0 0 14px rgba(154,230,180,0.3); }
+.mission-icon.media     { background: rgba(183,148,244,0.15);  color: #b794f4; box-shadow: 0 0 14px rgba(183,148,244,0.3); }
+.mission-icon.assurance { background: rgba(252,129,129,0.15);  color: #fc8181; box-shadow: 0 0 14px rgba(252,129,129,0.3); }
+.mission-icon.bouygues  { background: rgba(0,180,255,0.15);    color: #00b4d8; box-shadow: 0 0 14px rgba(0,180,255,0.3);   }
+
+.timeline-card:hover .mission-icon.retail    { box-shadow: 0 0 22px rgba(99,179,237,0.6);  }
+.timeline-card:hover .mission-icon.luxe      { box-shadow: 0 0 22px rgba(214,158,46,0.6);  }
+.timeline-card:hover .mission-icon.industrie { box-shadow: 0 0 22px rgba(154,230,180,0.6); }
+.timeline-card:hover .mission-icon.media     { box-shadow: 0 0 22px rgba(183,148,244,0.6); }
+.timeline-card:hover .mission-icon.assurance { box-shadow: 0 0 22px rgba(252,129,129,0.6); }
+.timeline-card:hover .mission-icon.bouygues  { box-shadow: 0 0 22px rgba(0,180,255,0.6);   }
+
+/* Bouygues sector tag */
+.sector-tag.bouygues-tag { background: rgba(0,180,255,0.15); color: #00b4d8; }
+
+/* Icon in list items */
+.list-icon {
+  margin-right: 0.4rem;
+  color: var(--color-accent);
+  font-size: 0.85rem;
+}
+
+/* Icon in tech pills */
+.tech i {
+  font-size: 0.75rem;
+  margin-right: 0.25rem;
+  opacity: 0.9;
+}
+
+/* Company badge icon */
+.company-badge i {
+  margin-right: 0.35rem;
+  opacity: 0.9;
+}
+
 /* Sector tags */
 .sector-tag {
   font-size: 0.72rem;
