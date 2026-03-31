@@ -1,349 +1,399 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pierre Bourgeois - Consultant Data</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pierre Bourgeois – Consultant Data Scientist</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">Pierre Bourgeois</div>
-            <ul class="nav-menu">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#apropos">À propos</a></li>
-                <li><a href="#experiences">Expériences</a></li>
-                <li><a href="#competences">Compétences</a></li>
-                <li><a href="#contact">Contact</a></li>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <span class="nav-logo">PB</span>
+      <ul class="nav-links">
+        <li><a href="#hero">Accueil</a></li>
+        <li><a href="#about">Profil</a></li>
+        <li><a href="#experience">Expériences</a></li>
+        <li><a href="#skills">Compétences</a></li>
+        <li><a href="#education">Formation</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg">
+      <canvas id="particleCanvas"></canvas>
+    </div>
+    <div class="hero-content">
+      <p class="hero-tag">Consultant Data Scientist</p>
+      <h1>Pierre <span class="accent">Bourgeois</span></h1>
+      <p class="hero-subtitle">
+        Accompagnement des entreprises dans la valorisation de leurs données,
+        l'optimisation de processus, le développement de modèles prédictifs
+        et la mise en production de solutions <strong>Data &amp; IA générative</strong>.
+      </p>
+      <div class="hero-cta">
+        <a href="#experience" class="btn btn-primary">Voir mes projets</a>
+        <a href="#contact" class="btn btn-outline">Me contacter</a>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">Profil</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            Ingénieur généraliste diplômé de l'<strong>IMT Atlantique</strong>, je suis depuis
+            novembre 2020 <strong>Consultant Data Scientist chez AVISIA</strong>, cabinet de conseil
+            spécialisé en Data & IA.
+          </p>
+          <p>
+            J'interviens auprès de <strong>grands comptes</strong> dans des secteurs variés — Retail,
+            Luxe, Industrie, Média, Assurance — pour concevoir, industrialiser et déployer des solutions
+            Data concrètes qui créent de la valeur métier.
+          </p>
+          <p>
+            En parallèle de mon rôle de consultant, j'encadre une équipe de 7 collaborateurs, anime des
+            formations internes et externes, et supervise des projets R&D au sein de l'AVISIA Lab's.
+          </p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <span class="stat-number">5+</span>
+            <span class="stat-label">Années d'expérience</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">5</span>
+            <span class="stat-label">Secteurs couverts</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">7</span>
+            <span class="stat-label">Collaborateurs managés</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">GCP</span>
+            <span class="stat-label">Stack cloud principale</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Expériences & Projets</h2>
+
+      <div class="timeline">
+
+        <!-- AVISIA heading -->
+        <div class="timeline-company">
+          <div class="company-badge">AVISIA</div>
+          <span class="company-period">Novembre 2020 – aujourd'hui</span>
+          <p class="company-role">Consultant Data Scientist</p>
+        </div>
+
+        <!-- Retail -->
+        <div class="timeline-item" data-sector="retail">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="card-header">
+              <span class="sector-tag retail">Retail</span>
+              <span class="card-period">Sep. 2025 – aujourd'hui</span>
+            </div>
+            <h3>Prévision des ventes B2C</h3>
+            <p>Intégration des promotions et investissements médias dans des modèles de prévision des ventes. Optimisation des modèles et automatisation des pipelines de données pour dashboards décisionnels.</p>
+            <div class="tech-stack">
+              <span class="tech">BigQuery</span>
+              <span class="tech">Vertex AI</span>
+              <span class="tech">Cloud Run</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Luxe -->
+        <div class="timeline-item" data-sector="luxe">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="card-header">
+              <span class="sector-tag luxe">Luxe</span>
+              <span class="card-period">Sep. 2022 – Sep. 2025</span>
+            </div>
+            <h3>Recommandation & Personnalisation client</h3>
+            <p>Génération automatique de looks de 6 articles à partir d'un item unique pour les conseillers clientèle. Personnalisation des parcours clients sur site web via système de recommandation intégré.</p>
+            <div class="tech-stack">
+              <span class="tech">Dataiku DSS</span>
+              <span class="tech">Hadoop</span>
+              <span class="tech">GCP</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Industrie -->
+        <div class="timeline-item" data-sector="industrie">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="card-header">
+              <span class="sector-tag industrie">Industrie F&F</span>
+              <span class="card-period">Jan. 2022 – Sep. 2022</span>
+            </div>
+            <h3>Marketing sensoriel — parfums × couleurs</h3>
+            <p>Traduction des parfums en couleurs et émotions via modèles ML pour marketing sensoriel.</p>
+            <div class="tech-stack">
+              <span class="tech">Dataiku DSS</span>
+              <span class="tech">ML</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Media -->
+        <div class="timeline-item" data-sector="media">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="card-header">
+              <span class="sector-tag media">Média</span>
+              <span class="card-period">Juin 2021 – Jan. 2022</span>
+            </div>
+            <h3>Segmentation & enrichissement clients</h3>
+            <p>Enrichissement des données clients et segmentation avancée pour campagnes ciblées.</p>
+            <div class="tech-stack">
+              <span class="tech">Python</span>
+              <span class="tech">Segmentation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Assurance -->
+        <div class="timeline-item" data-sector="assurance">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="card-header">
+              <span class="sector-tag assurance">Assurance</span>
+              <span class="card-period">Nov. 2020 – Juin 2021</span>
+            </div>
+            <h3>KYC & automatisation intelligente</h3>
+            <p>Optimisation des processus KYC et conformité via automatisation intelligente.</p>
+            <div class="tech-stack">
+              <span class="tech">Python</span>
+              <span class="tech">Automatisation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rôles transversaux -->
+        <div class="transversal-block">
+          <h3 class="transversal-title">Rôles transversaux</h3>
+          <div class="transversal-grid">
+            <div class="transversal-card">
+              <div class="t-icon">&#128101;</div>
+              <h4>Manager d'équipe</h4>
+              <p>Encadrement direct de 7 collaborateurs, suivi des projets, développement des compétences techniques et méthodologiques.</p>
+            </div>
+            <div class="transversal-card">
+              <div class="t-icon">&#127979;</div>
+              <h4>Formateur</h4>
+              <p>Conception et animation de sessions internes et externes sur Python, Docker et Générative AI.</p>
+            </div>
+            <div class="transversal-card">
+              <div class="t-icon">&#128300;</div>
+              <h4>Coach AVISIA Lab's</h4>
+              <p>Supervision de projets R&D en IA générative, de la conception à l'industrialisation de prototypes.</p>
+            </div>
+            <div class="transversal-card">
+              <div class="t-icon">&#127919;</div>
+              <h4>Mentorat</h4>
+              <p>Accompagnement de stagiaires et alternants, mise en place de plans d'apprentissage.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bouygues -->
+        <div class="timeline-company" style="margin-top: 3rem;">
+          <div class="company-badge bouygues">Bouygues Télécom</div>
+          <span class="company-period">Stage puis alternance – 18 mois</span>
+          <p class="company-role">Data Analyst – Datalab</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <h3>Projets Datalab</h3>
+            <ul class="card-list">
+              <li>Analyse des disparités de performance sur le raccordement fibre</li>
+              <li>Recommandation d'offres mobile et terminaux aux clients et prospects</li>
+              <li>Optimisation des actes de prévention impayé mobile</li>
             </ul>
+          </div>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="accueil" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Pierre Bourgeois</h1>
-                <p class="subtitle">Consultant Data & IA</p>
-                <p class="description">Accompagnement des entreprises dans la valorisation de leurs données, l'optimisation de processus et la mise en production de solutions Data et IA générative.</p>
-                <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-primary">Contactez-moi</a>
-                    <a href="#experiences" class="btn btn-secondary">Découvrir mon parcours</a>
-                </div>
-            </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Compétences</h2>
+      <div class="skills-grid">
+
+        <div class="skill-category">
+          <div class="skill-icon">&#129302;</div>
+          <h3>Data Science & IA</h3>
+          <ul>
+            <li>Modèles prédictifs &amp; scoring</li>
+            <li>Systèmes de recommandation</li>
+            <li>ML supervisé &amp; non supervisé</li>
+            <li>Deep Learning, NLP, Computer Vision</li>
+            <li>IA générative &amp; personnalisation</li>
+          </ul>
         </div>
-    </section>
 
-    <!-- À propos -->
-    <section id="apropos" class="about">
-        <div class="container">
-            <h2>À propos</h2>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>Ingénieur généraliste avec plus de 5 ans d'expérience en Data Science et Intelligence Artificielle, je specialise dans la transformation digitale et la valorisation des données pour les entreprises.</p>
-                    <p>Mon expertise couvre l'ensemble du cycle de vie des projets Data : du machine learning jusqu'à la mise en production, en passant par les analyses commerciales et les systèmes de recommandation.</p>
-                </div>
-                <div class="stats">
-                    <div class="stat">
-                        <h3>5+</h3>
-                        <p>Ans d'expérience</p>
-                    </div>
-                    <div class="stat">
-                        <h3>15+</h3>
-                        <p>Projets Data</p>
-                    </div>
-                    <div class="stat">
-                        <h3>7</h3>
-                        <p>Collaborateurs encadrés</p>
-                    </div>
-                    <div class="stat">
-                        <h3>6</h3>
-                        <p>Secteurs différents</p>
-                    </div>
-                </div>
-            </div>
+        <div class="skill-category">
+          <div class="skill-icon">&#9881;&#65039;</div>
+          <h3>Data Engineering</h3>
+          <ul>
+            <li>Pipelines ETL/ELT</li>
+            <li>SQL/MySQL, BigQuery</li>
+            <li>Hadoop / Spark</li>
+            <li>Industrialisation &amp; déploiement</li>
+            <li>Dashboards décisionnels</li>
+          </ul>
         </div>
-    </section>
 
-    <!-- Formation -->
-    <section class="education">
-        <div class="container">
-            <h2>Formation</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Ingénieur Généraliste</h3>
-                        <p class="institution">IMT Atlantique (ex Télécom Bretagne)</p>
-                        <p class="date">2016 - 2020</p>
-                        <p>Formation pluridisciplinaire : Data Science, IA, Big Data, Cloud, Management et Innovation. Développement de modèles prédictifs, pipelines ETL, dashboards décisionnels.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <h3>Classes Préparatoires MPSI/MP</h3>
-                        <p class="institution">Lycée Jeanne d'Albret</p>
-                        <p class="date">2013 - 2016</p>
-                        <p>Spécialité Science de l'Ingénieur. Acquisition d'une rigueur scientifique et analytique solide.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="skill-category">
+          <div class="skill-icon">&#128187;</div>
+          <h3>Développement & DevOps</h3>
+          <ul>
+            <li>Python, Bash/Linux</li>
+            <li>Docker, Kubernetes</li>
+            <li>CI/CD Data pipelines</li>
+            <li>Git / GitHub</li>
+          </ul>
         </div>
-    </section>
 
-    <!-- Experiences -->
-    <section id="experiences" class="experiences">
-        <div class="container">
-            <h2>Expériences Clés</h2>
-            
-            <div class="experience-main">
-                <h3>Consultant Data Scientist - AVISIA <span class="date">Nov 2020 - Aujourd'hui</span></h3>
-                
-                <div class="projects">
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h4>🛍️ Retail</h4>
-                            <span class="project-date">Sep 2025 - Aujourd'hui</span>
-                        </div>
-                        <p><strong>Prévision des ventes B2C</strong> intégrant promotions et investissements médias. Optimisation des modèles et automatisation des pipelines de données pour dashboards décisionnels.</p>
-                        <div class="tech-stack">
-                            <span class="tech">BigQuery</span>
-                            <span class="tech">Vertex AI</span>
-                            <span class="tech">Cloud Run</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h4>✨ Luxe</h4>
-                            <span class="project-date">Sep 2022 - Sep 2025</span>
-                        </div>
-                        <p><strong>Génération automatique de looks</strong> de 6 articles à partir d'un item unique. <strong>Système de recommandation</strong> pour personnalisation des parcours clients sur site web.</p>
-                        <div class="tech-stack">
-                            <span class="tech">Dataiku DSS</span>
-                            <span class="tech">Hadoop</span>
-                            <span class="tech">GCP</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h4>🎨 Industrie Flavor & Fragrance</h4>
-                            <span class="project-date">Janv 2022 - Sep 2022</span>
-                        </div>
-                        <p><strong>Traduction des parfums en couleurs et émotions</strong> via Machine Learning pour marketing sensoriel.</p>
-                        <div class="tech-stack">
-                            <span class="tech">Dataiku DSS</span>
-                            <span class="tech">ML</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h4>📊 Media & Segmentation</h4>
-                            <span class="project-date">Juin 2021 - Janv 2022</span>
-                        </div>
-                        <p>Enrichissement des données clients et <strong>segmentation avancée</strong> pour campagnes ciblées.</p>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h4>🔒 Assurance</h4>
-                            <span class="project-date">Nov 2020 - Juin 2021</span>
-                        </div>
-                        <p><strong>Optimisation des processus KYC</strong> et conformité via automatisation intelligente.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Rôles transversaux -->
-            <div class="transversal-roles">
-                <h3>Rôles Transversaux</h3>
-                <div class="roles-grid">
-                    <div class="role-card">
-                        <i class="fas fa-users"></i>
-                        <h4>Manager d'Équipe</h4>
-                        <p>Encadrement direct de 7 collaborateurs, suivi des projets et développement des compétences</p>
-                    </div>
-                    <div class="role-card">
-                        <i class="fas fa-chalkboard"></i>
-                        <h4>Formateur</h4>
-                        <p>Conception de sessions internes et externes sur Python, Docker et Générative AI</p>
-                    </div>
-                    <div class="role-card">
-                        <i class="fas fa-lightbulb"></i>
-                        <h4>Coach R&D</h4>
-                        <p>Supervision de projets en IA générative, validation de modèles et industrialisation</p>
-                    </div>
-                    <div class="role-card">
-                        <i class="fas fa-handshake"></i>
-                        <h4>Relations Commerciales</h4>
-                        <p>Réponse à appels d'offres (CSRD, Hyperpersonnalisation GenAI)</p>
-                    </div>
-                </div>
-            </div>
+        <div class="skill-category">
+          <div class="skill-icon">&#128202;</div>
+          <h3>Analyse & Visualisation</h3>
+          <ul>
+            <li>Analyse exploratoire</li>
+            <li>Tests statistiques &amp; A/B testing</li>
+            <li>Tableau, Google Data Studio</li>
+            <li>Google Analytics</li>
+          </ul>
         </div>
-    </section>
 
-    <!-- Competences -->
-    <section id="competences" class="skills">
-        <div class="container">
-            <h2>Compétences</h2>
-            
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Data Science & IA</h3>
-                    <ul class="skill-list">
-                        <li>Modèles prédictifs & ML</li>
-                        <li>Systèmes de recommandation</li>
-                        <li>Deep Learning & NLP</li>
-                        <li>IA générative</li>
-                        <li>Computer Vision</li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Data Engineering</h3>
-                    <ul class="skill-list">
-                        <li>Pipelines ETL/ELT</li>
-                        <li>BigQuery & SQL</li>
-                        <li>Hadoop & Spark</li>
-                        <li>Dataiku DSS</li>
-                        <li>Dashboards décisionnels</li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Développement</h3>
-                    <ul class="skill-list">
-                        <li>Python</li>
-                        <li>Docker & Kubernetes</li>
-                        <li>CI/CD</li>
-                        <li>Git/GitHub</li>
-                        <li>Bash/Linux</li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Management</h3>
-                    <ul class="skill-list">
-                        <li>Gestion de projets</li>
-                        <li>Leadership d'équipe</li>
-                        <li>Mentorat & Coaching</li>
-                        <li>Agile/Scrum</li>
-                        <li>Consulting stratégique</li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Secteurs d'Expertise</h3>
-                    <ul class="skill-list">
-                        <li>Retail & E-commerce</li>
-                        <li>Luxe</li>
-                        <li>Industrie & FMCG</li>
-                        <li>Media</li>
-                        <li>Assurance</li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Outils & Technologies</h3>
-                    <ul class="skill-list">
-                        <li>Tableau & Google Analytics</li>
-                        <li>IoT & LoRa</li>
-                        <li>Tests statistiques</li>
-                        <li>A/B Testing</li>
-                        <li>Cloud (GCP)</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="skill-category">
+          <div class="skill-icon">&#128269;</div>
+          <h3>Management & Consulting</h3>
+          <ul>
+            <li>Réponses à appels d'offres</li>
+            <li>Pilotage &amp; delivery projet</li>
+            <li>Coaching &amp; encadrement</li>
+            <li>Conseil stratégique Data</li>
+          </ul>
         </div>
-    </section>
 
-    <!-- Points forts -->
-    <section class="highlights">
-        <div class="container">
-            <h2>Points Forts</h2>
-            <div class="highlights-grid">
-                <div class="highlight-card">
-                    <i class="fas fa-star"></i>
-                    <h3>Expertise reconnue</h3>
-                    <p>En Data Science et IA pour des secteurs variés</p>
-                </div>
-                <div class="highlight-card">
-                    <i class="fas fa-cogs"></i>
-                    <h3>Industrialisation</h3>
-                    <p>Capacité à mettre en production des modèles Data</p>
-                </div>
-                <div class="highlight-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Orientation résultats</h3>
-                    <p>Amélioration de KPI, ROI et expérience client</p>
-                </div>
-                <div class="highlight-card">
-                    <i class="fas fa-users-cog"></i>
-                    <h3>Leadership technique</h3>
-                    <p>Gestion de projets complexes et d'équipes</p>
-                </div>
-            </div>
+        <div class="skill-category">
+          <div class="skill-icon">&#127759;</div>
+          <h3>Cloud & Plateformes</h3>
+          <ul>
+            <li>Google Cloud Platform (GCP)</li>
+            <li>Vertex AI, Cloud Run</li>
+            <li>Dataiku DSS</li>
+            <li>BigQuery</li>
+          </ul>
         </div>
-    </section>
 
-    <!-- Contact -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contactez-moi</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <a href="mailto:bourgeois.pierre12@gmail.com">bourgeois.pierre12@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Téléphone</h4>
-                            <a href="tel:+33679379254">+33 6 79 37 92 54</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Localisation</h4>
-                            <p>36 rue Sorbier – 75020 – Paris</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-linkedin"></i>
-                        <div>
-                            <h4>LinkedIn</h4>
-                            <a href="https://www.linkedin.com/in/bourgeoispierre1/" target="_blank">Visiter mon profil</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      </div>
+
+      <div class="sectors">
+        <h3 class="sectors-title">Secteurs d'intervention</h3>
+        <div class="sector-pills">
+          <span>Retail &amp; E-commerce</span>
+          <span>Luxe</span>
+          <span>Industrie &amp; FMCG</span>
+          <span>Média</span>
+          <span>Assurance</span>
+          <span>Télécommunications</span>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Pierre Bourgeois. Tous droits réservés.</p>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/bourgeoispierre1/" target="_blank" class="social-link">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </div>
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title">Formation</h2>
+      <div class="education-grid">
+
+        <div class="edu-card">
+          <div class="edu-year">2016 – 2020</div>
+          <div class="edu-body">
+            <h3>Formation Ingénieur Généraliste</h3>
+            <p class="edu-school">IMT Atlantique <em>(ex Télécom Bretagne)</em></p>
+            <p>Formation pluridisciplinaire : Data Science, IA, Big Data, Cloud, Management et Innovation.</p>
+            <p class="edu-projects"><strong>Projets :</strong> Développement de modèles prédictifs, pipelines ETL, dashboards décisionnels.</p>
+          </div>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
+        <div class="edu-card">
+          <div class="edu-year">2013 – 2016</div>
+          <div class="edu-body">
+            <h3>Classes Préparatoires MPSI/MP</h3>
+            <p class="edu-school">Lycée Jeanne d'Albret</p>
+            <p>Spécialité Science de l'Ingénieur. Acquisition d'une rigueur scientifique et analytique solide.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="contact-intro">Disponible pour tout échange sur des projets Data &amp; IA.</p>
+      <div class="contact-cards">
+        <a href="mailto:bourgeois.pierre12@gmail.com" class="contact-card">
+          <div class="contact-icon">&#9993;</div>
+          <span>bourgeois.pierre12@gmail.com</span>
+        </a>
+        <a href="tel:+33679379254" class="contact-card">
+          <div class="contact-icon">&#128222;</div>
+          <span>+33 6 79 37 92 54</span>
+        </a>
+        <a href="https://www.linkedin.com/in/bourgeoispierre1/" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="contact-icon">&#128101;</div>
+          <span>linkedin.com/in/bourgeoispierre1</span>
+        </a>
+        <div class="contact-card no-link">
+          <div class="contact-icon">&#128205;</div>
+          <span>36 rue Sorbier, 75020 Paris</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Pierre Bourgeois — Consultant Data Scientist</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

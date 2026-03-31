@@ -1,110 +1,136 @@
-// Smooth scroll navigation
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
+/* =============================================
+   PIERRE BOURGEOIS PORTFOLIO — script.js
+   ============================================= */
 
-// Intersection Observer for fade-in animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe all skill cards and experience cards
-document.querySelectorAll('.skill-category, .project-card, .role-card, .stat').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-});
-
-// Add scroll class to navbar
+// ── Navbar scroll effect ──────────────────────
+const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.15)';
-    } else {
-        navbar.style.boxShadow = 'var(--shadow)';
-    }
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+  updateActiveNavLink();
 });
 
-// Contact form validation (if needed in future)
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
+// ── Mobile nav toggle ─────────────────────────
+const navToggle = document.getElementById('navToggle');
+const navLinks  = document.querySelector('.nav-links');
+navToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => navLinks.classList.remove('open'));
+});
+
+// ── Active nav link on scroll ─────────────────
+function updateActiveNavLink() {
+  const sections = document.querySelectorAll('section[id]');
+  const scrollPos = window.scrollY + 120;
+
+  sections.forEach(section => {
+    const link = document.querySelector(`.nav-links a[href="#${section.id}"]`);
+    if (!link) return;
+    const top    = section.offsetTop;
+    const bottom = top + section.offsetHeight;
+    link.classList.toggle('active', scrollPos >= top && scrollPos < bottom);
+  });
 }
 
-// Counter animation for stats
-function animateCounters() {
-    const stats = document.querySelectorAll('.stat h3');
-    const speed = 30;
-    
-    stats.forEach(stat => {
-        const target = parseInt(stat.textContent);
-        if (isNaN(target)) return;
-        
-        const increment = target / speed;
-        let current = 0;
-        
-        const updateCount = () => {
-            current += increment;
-            if (current < target) {
-                stat.textContent = Math.ceil(current) + '+';
-                setTimeout(updateCount, 30);
-            } else {
-                stat.textContent = target + '+';
-            }
-        };
-    });
-}
-
-// Trigger counter animation when stats section comes into view
-const statsSection = document.querySelector('.about');
-const statsObserver = new IntersectionObserver((entries) => {
+// ── Scroll-reveal: timeline items ────────────
+const observer = new IntersectionObserver(
+  (entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateCounters();
-            statsObserver.unobserve(entry.target);
-        }
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
     });
-}, { threshold: 0.5 });
+  },
+  { threshold: 0.15 }
+);
 
-if (statsSection) {
-    statsObserver.observe(statsSection);
+document.querySelectorAll('.timeline-item').forEach(item => observer.observe(item));
+
+// ── Particle canvas (hero) ────────────────────
+const canvas = document.getElementById('particleCanvas');
+const ctx    = canvas.getContext('2d');
+let particles = [];
+let width, height;
+
+function resize() {
+  width  = canvas.width  = window.innerWidth;
+  height = canvas.height = window.innerHeight;
 }
 
-// Responsive navigation menu toggle for mobile
-function setupMobileMenu() {
-    const navbar = document.querySelector('.navbar');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (window.innerWidth <= 768) {
-        // Mobile menu functionality could be added here
-        console.log('Mobile menu setup ready');
-    }
+const PARTICLE_COLORS = [
+  '124,111,255',   // purple
+  '0,255,204',     // teal
+  '255,107,157',   // pink
+  '255,169,77',    // orange
+  '0,180,255',     // cyan
+];
+
+class Particle {
+  constructor() {
+    this.reset(true);
+  }
+
+  reset(initial = false) {
+    this.x     = Math.random() * width;
+    this.y     = initial ? Math.random() * height : height + 10;
+    this.size  = Math.random() * 2.2 + 0.3;
+    this.speedX = (Math.random() - 0.5) * 0.4;
+    this.speedY = -(Math.random() * 0.65 + 0.2);
+    this.alpha  = Math.random() * 0.65 + 0.1;
+    this.color  = PARTICLE_COLORS[Math.floor(Math.random() * PARTICLE_COLORS.length)];
+  }
+
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    if (this.y < -10) this.reset();
+  }
+
+  draw() {
+    // glow halo
+    const grd = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 4);
+    grd.addColorStop(0,   `rgba(${this.color},${this.alpha})`);
+    grd.addColorStop(0.4, `rgba(${this.color},${this.alpha * 0.3})`);
+    grd.addColorStop(1,   `rgba(${this.color},0)`);
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size * 4, 0, Math.PI * 2);
+    ctx.fillStyle = grd;
+    ctx.fill();
+    // core dot
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(${this.color},${Math.min(this.alpha * 2, 1)})`;
+    ctx.fill();
+  }
 }
 
-setupMobileMenu();
+function initParticles() {
+  particles = [];
+  const count = Math.floor((width * height) / 6000);  // denser particle field
+  for (let i = 0; i < count; i++) particles.push(new Particle());
+}
 
-// Rerun setup on resize
-window.addEventListener('resize', setupMobileMenu);
+function animateParticles() {
+  ctx.clearRect(0, 0, width, height);
+  particles.forEach(p => { p.update(); p.draw(); });
+  requestAnimationFrame(animateParticles);
+}
 
-// Log that the script has loaded
-console.log('Portfolio script loaded successfully');
+window.addEventListener('resize', () => { resize(); initParticles(); });
+resize();
+initParticles();
+animateParticles();
+
+// ── Smooth scroll for anchor links ───────────
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    const offset = 80;
+    const top    = target.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
+  });
+});
